@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    /* CustomBot 브랜드 색상 */
+    --custombot-primary: 217 91% 60%; /* #3b82f6 */
+    --custombot-primary-dark: 217 91% 50%; /* #2563eb */
+    --custombot-secondary: 220 13% 91%; /* #e5e7eb */
+    --custombot-accent: 217 100% 97%; /* #eff6ff */
+
+    /* Sidebar 색상 */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 217 91% 60%; /* CustomBot 브랜드 컬러 */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 217 100% 97%;
+    --sidebar-accent-foreground: 217 91% 60%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* CustomBot 다크 모드 색상 */
+    --custombot-primary: 217 91% 60%;
+    --custombot-primary-dark: 217 91% 70%;
+    --custombot-secondary: 240 3.7% 15.9%;
+    --custombot-accent: 240 5.9% 10%;
+
+    /* Sidebar 다크 모드 */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* CustomBot 전용 유틸리티 클래스 */
+@layer components {
+  .custombot-gradient {
+    @apply bg-gradient-to-r from-custombot-primary-500 to-custombot-primary-600;
+  }
+
+  .custombot-shadow {
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -1px rgba(59, 130, 246, 0.06);
+  }
+
+  .custombot-border {
+    @apply border-custombot-primary-200;
+  }
+
+  .custombot-text-primary {
+    @apply text-custombot-primary-600;
+  }
+
+  .custombot-bg-primary {
+    @apply bg-custombot-primary-500 hover:bg-custombot-primary-600;
+  }
+
+  .custombot-bg-secondary {
+    @apply bg-custombot-primary-50 text-custombot-primary-700;
+  }
+
+  /* 상태별 색상 */
+  .status-success {
+    @apply bg-custombot-success-100 text-custombot-success-800 border-custombot-success-200;
+  }
+
+  .status-warning {
+    @apply bg-custombot-warning-100 text-custombot-warning-800 border-custombot-warning-200;
+  }
+
+  .status-danger {
+    @apply bg-custombot-danger-100 text-custombot-danger-800 border-custombot-danger-200;
+  }
+
+  /* 채팅 메시지 스타일 */
+  .chat-message-user {
+    @apply bg-custombot-primary-600 text-white;
+  }
+
+  .chat-message-bot {
+    @apply bg-white border border-custombot-gray-200;
+  }
+
+  /* 브리핑 카드 스타일 */
+  .briefing-card {
+    @apply bg-white border border-custombot-gray-200 hover:border-custombot-primary-300 hover:shadow-md transition-all duration-200;
+  }
+
+  /* 업로드 영역 스타일 */
+  .upload-area {
+    @apply border-2 border-dashed border-custombot-gray-300 hover:border-custombot-primary-400 transition-colors duration-200;
+  }
+}
+
+/* 스크롤바 커스터마이징 */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.custombot.gray.300") transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme("colors.custombot.gray.300");
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme("colors.custombot.gray.400");
+  }
+}
